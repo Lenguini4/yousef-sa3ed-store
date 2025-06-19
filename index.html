@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,20 +20,75 @@
 </head>
 <body>
   <header>YOUSEF SA3Ed</header>
+
   <div class="products">
-    <div class="product"><img src="https://via.placeholder.com/200x250?text=Shirt+1" alt="Product 1" /><h3>Black Shirt</h3><p>150 EGP</p><button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button></div>
-    <div class="product"><img src="https://via.placeholder.com/200x250?text=Jacket+1" alt="Product 2" /><h3>Leather Jacket</h3><p>350 EGP</p><button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button></div>
-    <div class="product"><img src="https://via.placeholder.com/200x250?text=Hoodie" alt="Product 3" /><h3>Black Hoodie</h3><p>220 EGP</p><button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button></div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200x250?text=Shirt+1" alt="Product 1" />
+      <h3>Black Shirt</h3>
+      <p>150 EGP</p>
+      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200x250?text=Jacket+1" alt="Product 2" />
+      <h3>Leather Jacket</h3>
+      <p>350 EGP</p>
+      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200x250?text=Hoodie" alt="Product 3" />
+      <h3>Black Hoodie</h3>
+      <p>220 EGP</p>
+      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+    </div>
   </div>
-  <form id="order-form">
+
+  <form id="order-form" onsubmit="sendWhatsApp(); return false;">
     <h2>نموذج الطلب</h2>
-    <input type="text" placeholder="الاسم بالكامل" required />
-    <input type="tel" placeholder="رقم الهاتف" required />
-    <input type="text" placeholder="العنوان" required />
-    <select required><option value="">اختر المنتج</option><option>Black Shirt</option><option>Leather Jacket</option><option>Black Hoodie</option></select>
-    <select required><option value="">اختر المقاس</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-    <textarea placeholder="ملاحظات إضافية (اختياري)"></textarea>
-    <button type="submit">إرسال الطلب</button>
+    <input type="text" id="name" placeholder="الاسم بالكامل" required />
+    <input type="tel" id="phone" placeholder="رقم الهاتف" required />
+    <input type="text" id="address" placeholder="العنوان" required />
+    
+    <select id="product" required>
+      <option value="">اختر المنتج</option>
+      <option>Black Shirt</option>
+      <option>Leather Jacket</option>
+      <option>Black Hoodie</option>
+    </select>
+    
+    <select id="size" required>
+      <option value="">اختر المقاس</option>
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+    
+    <textarea id="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+    <button type="submit">إرسال الطلب عبر واتساب</button>
   </form>
+
+  <script>
+    function sendWhatsApp() {
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const address = document.getElementById("address").value;
+      const product = document.getElementById("product").value;
+      const size = document.getElementById("size").value;
+      const notes = document.getElementById("notes").value;
+
+      const message = `طلب جديد:%0A
+الاسم: ${name}%0A
+رقم الهاتف: ${phone}%0A
+العنوان: ${address}%0A
+المنتج: ${product}%0A
+المقاس: ${size}%0A
+ملاحظات: ${notes ? notes : "لا يوجد"}`;
+
+      const phoneNumber = "201067892584";
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+      window.open(whatsappURL, "_blank");
+    }
+  </script>
 </body>
 </html>
