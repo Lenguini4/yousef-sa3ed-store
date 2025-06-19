@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUSEF SA3Ed - Fashion Store</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #000; color: #fff; }
+    header { background-color: #111; padding: 20px; text-align: center; font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+    .product { background-color: #1a1a1a; padding: 15px; border-radius: 8px; text-align: center; }
+    .product img { width: 100%; border-radius: 8px; }
+    .product h3 { margin: 10px 0 5px; }
+    .product button { margin-top: 10px; padding: 10px 15px; border: none; background-color: gold; color: black; font-weight: bold; cursor: pointer; border-radius: 5px; }
+    form { padding: 20px; background-color: #111; }
+    form input, form select, form textarea { width: 100%; padding: 10px; margin: 10px 0; border: none; border-radius: 5px; }
+    form button { padding: 12px; background-color: gold; border: none; width: 100%; font-weight: bold; cursor: pointer; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <header>YOUSEF SA3Ed</header>
+  <div class="products">
+    <div class="product"><img src="https://via.placeholder.com/200x250?text=Shirt+1" alt="Product 1" /><h3>Black Shirt</h3><p>150 EGP</p><button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button></div>
+    <div class="product"><img src="https://via.placeholder.com/200x250?text=Jacket+1" alt="Product 2" /><h3>Leather Jacket</h3><p>350 EGP</p><button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button></div>
+    <div class="product"><img src="https://via.placeholder.com/200x250?text=Hoodie" alt="Product 3" /><h3>Black Hoodie</h3><p>220 EGP</p><button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button></div>
+  </div>
+  <form id="order-form">
+    <h2>نموذج الطلب</h2>
+    <input type="text" placeholder="الاسم بالكامل" required />
+    <input type="tel" placeholder="رقم الهاتف" required />
+    <input type="text" placeholder="العنوان" required />
+    <select required><option value="">اختر المنتج</option><option>Black Shirt</option><option>Leather Jacket</option><option>Black Hoodie</option></select>
+    <select required><option value="">اختر المقاس</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+    <textarea placeholder="ملاحظات إضافية (اختياري)"></textarea>
+    <button type="submit">إرسال الطلب</button>
+  </form>
+</body>
+</html>
