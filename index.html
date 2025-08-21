@@ -22,69 +22,7 @@
 <body>
   <header>YOUSEF SA3Ed - Medical Store</header>
 
-  <div class="products">
-    <!-- Bur -->
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200?text=Bur+German" alt="Bur ألماني" />
-      <h3>Bur ألماني</h3>
-      <p>102 EGP</p>
-      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200?text=Bur+Chinese" alt="Bur صيني" />
-      <h3>Bur صيني</h3>
-      <p>42 EGP</p>
-      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-    </div>
-
-    <!-- Stone -->
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200?text=Stone+German" alt="Stone ألماني" />
-      <h3>Stone ألماني</h3>
-      <p>102 EGP</p>
-      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200?text=Stone+Chinese" alt="Stone صيني" />
-      <h3>Stone صيني</h3>
-      <p>20 EGP</p>
-      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-    </div>
-
-    <!-- باقي المنتجات (مثال) -->
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200?text=Bana+cast" alt="Bana cast" />
-      <h3>Bana cast (plastic/metal)</h3>
-      <p>229 / 250 EGP</p>
-      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-    </div>
-
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200?text=Dental+probe" alt="Dental probe" />
-      <h3>Dental probe</h3>
-      <p>35 EGP</p>
-      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-    </div>
-
-    <!-- أضف كل المنتجات اللي بعتهالي بنفس الطريقة -->
-    <!-- مثال سريع: -->
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200?text=Wedges" alt="Wedges" />
-      <h3>Wedges</h3>
-      <p>139 EGP</p>
-      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-    </div>
-
-    <!-- منتجات الميكرو موتور -->
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200?text=Micromotor+204" alt="Micromotor strong 204" />
-      <h3>Micromotor strong 204 + contra low speed</h3>
-      <p>8750 EGP (6 شهور ضمان)</p>
-      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-    </div>
-
-    <!-- أكمل باقي المنتجات بنفس الطريقة -->
-  </div>
+  <div class="products"></div>
 
   <form id="order-form" onsubmit="sendWhatsApp(); return false;">
     <h2>نموذج الطلب</h2>
@@ -94,50 +32,6 @@
     
     <select id="product" required>
       <option value="">اختر المنتج</option>
-      <option>Bur ألماني</option>
-      <option>Bur صيني</option>
-      <option>Stone ألماني</option>
-      <option>Stone صيني</option>
-      <option>Bana cast</option>
-      <option>Dental probe</option>
-      <option>Wedges</option>
-      <option>Amalgam capsule</option>
-      <option>Amalgam carrier</option>
-      <option>Amalgam condenser</option>
-      <option>Amalgam carver</option>
-      <option>Amalgam well</option>
-      <option>Anatomical burnisher</option>
-      <option>Egg shaped burnisher</option>
-      <option>Ball burnisher</option>
-      <option>Gauze</option>
-      <option>Acrylic teeth sheet</option>
-      <option>Toffelmire matrix holder</option>
-      <option>Matrix band</option>
-      <option>Dental stone</option>
-      <option>Acrostone</option>
-      <option>Separating medium</option>
-      <option>Bond brush</option>
-      <option>Glass slab</option>
-      <option>Wax knife</option>
-      <option>Wax carver</option>
-      <option>Basbosa knife</option>
-      <option>Alginate spatula</option>
-      <option>Rubber bowl</option>
-      <option>Pink wax</option>
-      <option>Torch</option>
-      <option>Mirror</option>
-      <option>Napkins</option>
-      <option>Masks</option>
-      <option>Mano dental box</option>
-      <option>Powder free gloves</option>
-      <option>Netrile gloves</option>
-      <option>Over gloves medium</option>
-      <option>Over gloves heavy</option>
-      <option>Micromotor strong 204 + contra low speed</option>
-      <option>Micromotor strong 207 + contra low speed</option>
-      <option>Micromotor strong b135 + contra low speed</option>
-      <option>Micromotor microNX + contra NSK (ياباني)</option>
-      <option>Micromotor microNX + contra NSK (كوري)</option>
     </select>
     
     <textarea id="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
@@ -145,6 +39,75 @@
   </form>
 
   <script>
+    const products = [
+      {name: "Bur ألماني", price: 102},
+      {name: "Bur صيني", price: 42},
+      {name: "Stone ألماني", price: 102},
+      {name: "Stone صيني", price: 20},
+      {name: "Bana cast (plastic/metal)", price: "229 / 250"},
+      {name: "Dental probe", price: 35},
+      {name: "Wedges", price: 139},
+      {name: "Amalgam capsule", price: 33},
+      {name: "Amalgam carrier", price: 95},
+      {name: "Amalgam condenser", price: 33},
+      {name: "Amalgam carver", price: 33},
+      {name: "Amalgam well", price: 30},
+      {name: "Anatomical burnisher", price: 33},
+      {name: "Egg shaped burnisher", price: 33},
+      {name: "Ball burnisher", price: 33},
+      {name: "Gauze", price: 49},
+      {name: "Acrylic teeth sheet", price: 69},
+      {name: "Toffelmire matrix holder", price: 95},
+      {name: "Matrix band", price: 10},
+      {name: "Dental stone", price: 25},
+      {name: "Acrostone", price: 320},
+      {name: "Separating medium", price: 10},
+      {name: "Bond brush", price: 39},
+      {name: "Glass slab", price: 7},
+      {name: "Wax knife", price: 33},
+      {name: "Wax carver", price: 33},
+      {name: "Basbosa knife", price: 25},
+      {name: "Alginate spatula", price: 15},
+      {name: "Rubber bowl", price: 22},
+      {name: "Pink wax", price: 190},
+      {name: "Torch", price: 155},
+      {name: "Mirror", price: 42},
+      {name: "Napkins", price: 50},
+      {name: "Masks", price: 40},
+      {name: "Mano dental box", price: 435},
+      {name: "Powder free gloves", price: 159},
+      {name: "Netrile gloves", price: 149},
+      {name: "Over gloves medium", price: 10},
+      {name: "Over gloves heavy", price: 15},
+      {name: "Micromotor strong 204 + contra strong low speed", price: "8750 (6 شهور ضمان)"},
+      {name: "Micromotor strong 207 + contra strong low speed", price: "8550 (6 شهور ضمان)"},
+      {name: "Micromotor strong b135 + contra strong low speed", price: "8650 (6 شهور ضمان)"},
+      {name: "Micromotor microNX + contra NSK (ياباني)", price: "7000 (6 شهور ضمان)"},
+      {name: "Micromotor microNX + contra NSK (كوري)", price: "7200 (12 شهر ضمان)"}
+    ];
+
+    const container = document.querySelector('.products');
+    const productSelect = document.getElementById('product');
+
+    products.forEach(p => {
+      // إضافة المنتج للقسم الرئيسي
+      const div = document.createElement('div');
+      div.className = 'product';
+      div.innerHTML = `
+        <img src="https://via.placeholder.com/200x200?text=${encodeURIComponent(p.name)}" alt="${p.name}" />
+        <h3>${p.name}</h3>
+        <p>${p.price} EGP</p>
+        <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+      `;
+      container.appendChild(div);
+
+      // إضافة المنتج لقائمة الاختيار في النموذج
+      const option = document.createElement('option');
+      option.value = p.name;
+      option.textContent = p.name;
+      productSelect.appendChild(option);
+    });
+
     function sendWhatsApp() {
       const name = document.getElementById("name").value;
       const phone = document.getElementById("phone").value;
@@ -166,4 +129,4 @@
     }
   </script>
 </body>
-        </html>
+  </html>
