@@ -1,45 +1,89 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOUSEF SA3Ed - Fashion Store</title>
+  <title>YOUSEF SA3Ed - Medical Store</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background-color: #000; color: #fff; }
-    header { background-color: #111; padding: 20px; text-align: center; font-size: 24px; font-weight: bold; letter-spacing: 2px; }
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
-    .product { background-color: #1a1a1a; padding: 15px; border-radius: 8px; text-align: center; }
+    body { margin: 0; font-family: Tahoma, sans-serif; background-color: #f7fdf9; color: #222; }
+    header { background-color: #0d9488; color: #fff; padding: 20px; text-align: center; font-size: 26px; font-weight: bold; letter-spacing: 1px; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 20px; }
+    .product { background-color: #fff; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     .product img { width: 100%; border-radius: 8px; }
-    .product h3 { margin: 10px 0 5px; }
-    .product button { margin-top: 10px; padding: 10px 15px; border: none; background-color: gold; color: black; font-weight: bold; cursor: pointer; border-radius: 5px; }
-    form { padding: 20px; background-color: #111; }
-    form input, form select, form textarea { width: 100%; padding: 10px; margin: 10px 0; border: none; border-radius: 5px; }
-    form button { padding: 12px; background-color: gold; border: none; width: 100%; font-weight: bold; cursor: pointer; border-radius: 5px; }
+    .product h3 { margin: 10px 0 5px; color: #0d9488; }
+    .product p { font-weight: bold; color: #444; }
+    .product button { margin-top: 10px; padding: 10px 15px; border: none; background-color: #0d9488; color: white; font-weight: bold; cursor: pointer; border-radius: 6px; }
+    form { padding: 20px; background-color: #e6fef7; border-top: 3px solid #0d9488; }
+    form h2 { color: #0d9488; }
+    form input, form select, form textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; }
+    form button { padding: 12px; background-color: #0d9488; color: #fff; border: none; width: 100%; font-weight: bold; cursor: pointer; border-radius: 6px; }
   </style>
 </head>
 <body>
-  <header>YOUSEF SA3Ed</header>
+  <header>YOUSEF SA3Ed - Medical Store</header>
 
   <div class="products">
+    <!-- Bur -->
     <div class="product">
-      <img src="https://via.placeholder.com/200x250?text=Shirt+1" alt="Product 1" />
-      <h3>Black Shirt</h3>
-      <p>150 EGP</p>
+      <img src="https://via.placeholder.com/200x200?text=Bur+German" alt="Bur ألماني" />
+      <h3>Bur ألماني</h3>
+      <p>102 EGP</p>
       <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
     </div>
     <div class="product">
-      <img src="https://via.placeholder.com/200x250?text=Jacket+1" alt="Product 2" />
-      <h3>Leather Jacket</h3>
-      <p>350 EGP</p>
+      <img src="https://via.placeholder.com/200x200?text=Bur+Chinese" alt="Bur صيني" />
+      <h3>Bur صيني</h3>
+      <p>42 EGP</p>
+      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+    </div>
+
+    <!-- Stone -->
+    <div class="product">
+      <img src="https://via.placeholder.com/200x200?text=Stone+German" alt="Stone ألماني" />
+      <h3>Stone ألماني</h3>
+      <p>102 EGP</p>
       <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
     </div>
     <div class="product">
-      <img src="https://via.placeholder.com/200x250?text=Hoodie" alt="Product 3" />
-      <h3>Black Hoodie</h3>
-      <p>220 EGP</p>
+      <img src="https://via.placeholder.com/200x200?text=Stone+Chinese" alt="Stone صيني" />
+      <h3>Stone صيني</h3>
+      <p>20 EGP</p>
       <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
     </div>
+
+    <!-- باقي المنتجات (مثال) -->
+    <div class="product">
+      <img src="https://via.placeholder.com/200x200?text=Bana+cast" alt="Bana cast" />
+      <h3>Bana cast (plastic/metal)</h3>
+      <p>229 / 250 EGP</p>
+      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/200x200?text=Dental+probe" alt="Dental probe" />
+      <h3>Dental probe</h3>
+      <p>35 EGP</p>
+      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+    </div>
+
+    <!-- أضف كل المنتجات اللي بعتهالي بنفس الطريقة -->
+    <!-- مثال سريع: -->
+    <div class="product">
+      <img src="https://via.placeholder.com/200x200?text=Wedges" alt="Wedges" />
+      <h3>Wedges</h3>
+      <p>139 EGP</p>
+      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+    </div>
+
+    <!-- منتجات الميكرو موتور -->
+    <div class="product">
+      <img src="https://via.placeholder.com/200x200?text=Micromotor+204" alt="Micromotor strong 204" />
+      <h3>Micromotor strong 204 + contra low speed</h3>
+      <p>8750 EGP (6 شهور ضمان)</p>
+      <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
+    </div>
+
+    <!-- أكمل باقي المنتجات بنفس الطريقة -->
   </div>
 
   <form id="order-form" onsubmit="sendWhatsApp(); return false;">
@@ -50,17 +94,50 @@
     
     <select id="product" required>
       <option value="">اختر المنتج</option>
-      <option>Black Shirt</option>
-      <option>Leather Jacket</option>
-      <option>Black Hoodie</option>
-    </select>
-    
-    <select id="size" required>
-      <option value="">اختر المقاس</option>
-      <option>S</option>
-      <option>M</option>
-      <option>L</option>
-      <option>XL</option>
+      <option>Bur ألماني</option>
+      <option>Bur صيني</option>
+      <option>Stone ألماني</option>
+      <option>Stone صيني</option>
+      <option>Bana cast</option>
+      <option>Dental probe</option>
+      <option>Wedges</option>
+      <option>Amalgam capsule</option>
+      <option>Amalgam carrier</option>
+      <option>Amalgam condenser</option>
+      <option>Amalgam carver</option>
+      <option>Amalgam well</option>
+      <option>Anatomical burnisher</option>
+      <option>Egg shaped burnisher</option>
+      <option>Ball burnisher</option>
+      <option>Gauze</option>
+      <option>Acrylic teeth sheet</option>
+      <option>Toffelmire matrix holder</option>
+      <option>Matrix band</option>
+      <option>Dental stone</option>
+      <option>Acrostone</option>
+      <option>Separating medium</option>
+      <option>Bond brush</option>
+      <option>Glass slab</option>
+      <option>Wax knife</option>
+      <option>Wax carver</option>
+      <option>Basbosa knife</option>
+      <option>Alginate spatula</option>
+      <option>Rubber bowl</option>
+      <option>Pink wax</option>
+      <option>Torch</option>
+      <option>Mirror</option>
+      <option>Napkins</option>
+      <option>Masks</option>
+      <option>Mano dental box</option>
+      <option>Powder free gloves</option>
+      <option>Netrile gloves</option>
+      <option>Over gloves medium</option>
+      <option>Over gloves heavy</option>
+      <option>Micromotor strong 204 + contra low speed</option>
+      <option>Micromotor strong 207 + contra low speed</option>
+      <option>Micromotor strong b135 + contra low speed</option>
+      <option>Micromotor microNX + contra NSK (ياباني)</option>
+      <option>Micromotor microNX + contra NSK (كوري)</option>
     </select>
     
     <textarea id="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
@@ -73,7 +150,6 @@
       const phone = document.getElementById("phone").value;
       const address = document.getElementById("address").value;
       const product = document.getElementById("product").value;
-      const size = document.getElementById("size").value;
       const notes = document.getElementById("notes").value;
 
       const message = `طلب جديد:%0A
@@ -81,7 +157,6 @@
 رقم الهاتف: ${phone}%0A
 العنوان: ${address}%0A
 المنتج: ${product}%0A
-المقاس: ${size}%0A
 ملاحظات: ${notes ? notes : "لا يوجد"}`;
 
       const phoneNumber = "201067892584";
@@ -91,4 +166,4 @@
     }
   </script>
 </body>
-</html>
+        </html>
