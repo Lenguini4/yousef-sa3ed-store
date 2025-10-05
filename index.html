@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>𝗬𝗼𝘂𝘀𝗲𝗳 𝗧𝗶𝗺𝗲𝗽𝗶𝗲𝗰𝗲𝘀 | الساعة السوداء</title>
+  <title>Yousef Timepieces | Black Watch</title>
   <style>
     body {
-      font-family: "Cairo", sans-serif;
+      font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #f3f4f6, #e0e0e0);
       margin: 0;
       padding: 0;
@@ -20,7 +20,6 @@
       font-size: 1.7em;
       font-weight: bold;
       letter-spacing: 1px;
-      font-family: "Poppins", sans-serif;
     }
 
     .product {
@@ -64,18 +63,69 @@
       margin-bottom: 15px;
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: none;
+      height: 70px;
+    }
+
     .btn {
       display: inline-block;
       background: #000;
       color: #fff;
-      padding: 10px 20px;
+      padding: 10px;
       border-radius: 10px;
       text-decoration: none;
+      border: none;
+      font-size: 1em;
       transition: 0.3s;
+      cursor: pointer;
     }
 
     .btn:hover {
       background: #333;
+    }
+
+    /* Popup style (black version) */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #000;
+      color: #fff;
+      padding: 25px 35px;
+      border-radius: 15px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      z-index: 1000;
+      animation: fadeIn 0.4s ease-in-out;
+      font-weight: 600;
+      font-size: 1.1em;
+      border: 2px solid #00ff7f;
+    }
+
+    .popup.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -55%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
     }
 
     footer {
@@ -89,25 +139,64 @@
 </head>
 
 <body>
-  <header>𝗬𝗼𝘂𝘀𝗲𝗳 𝗧𝗶𝗺𝗲𝗽𝗶𝗲𝗰𝗲𝘀</header>
+  <header>Yousef Timepieces</header>
 
   <div class="product">
-    <img src="https://via.placeholder.com/400x400?text=Black+Watch" alt="الساعة السوداء" />
-    <h2>الساعة السوداء الكلاسيكية</h2>
+    <img src="https://via.placeholder.com/400x400?text=Black+Watch" alt="Black Watch" />
+    <h2>Classic Black Watch</h2>
     <p>
-      ساعة أنيقة بلون أسود مطفي بالكامل، تجمع بين البساطة والفخامة في تصميم واحد.  
-      تتميز بقرص أسود بأرقام عربية واضحة وسير معدني متين بنفس اللون،  
-      لتناسب الرجال والنساء الذين يفضلون الإطلالة الكلاسيكية الجريئة.
+      Elegant matte black watch combining simplicity and luxury.<br>
+      Features Arabic numerals and a durable black metal strap.<br>
+      Perfect for those who love a bold, classy look.
     </p>
-    <p><em>
-      Elegant matte black watch combining simplicity and luxury.  
-      Features Arabic numerals and a durable black metal strap.  
-      Perfect for both men and women who love a bold, classy look.
-    </em></p>
     <div class="price">200 EGP</div>
-    <a href="https://wa.me/201067892584?text=أنا%20مهتم%20بالساعة%20السوداء" class="btn" target="_blank">اطلب الآن</a>
+
+    <form id="orderForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="text" id="address" placeholder="Address" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <textarea id="notes" placeholder="Notes (optional)"></textarea>
+      <button type="button" class="btn" onclick="sendToWhatsApp()">Send via WhatsApp</button>
+    </form>
   </div>
 
-  <footer>© 2025 𝗬𝗼𝘂𝘀𝗲𝗳 𝗧𝗶𝗺𝗲𝗽𝗶𝗲𝗰𝗲𝘀 | Designed by Yousef</footer>
+  <div class="popup" id="popupMessage">
+    ✅ Your order has been sent — we’ll contact you soon.
+  </div>
+
+  <footer>© 2025 Yousef Timepieces | Designed by Yousef</footer>
+
+  <script>
+    function sendToWhatsApp() {
+      const name = document.getElementById("name").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const notes = document.getElementById("notes").value.trim();
+
+      if (!name || !address || !phone) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      const message = `New Order from Yousef Timepieces:%0A%0A` +
+        `👤 Name: ${name}%0A` +
+        `🏠 Address: ${address}%0A` +
+        `📞 Phone: ${phone}%0A` +
+        `📝 Notes: ${notes || "N/A"}%0A%0A` +
+        `Product: Classic Black Watch - 200 EGP`;
+
+      const url = `https://wa.me/201067892584?text=${message}`;
+      window.open(url, "_blank");
+
+      // Show popup
+      const popup = document.getElementById("popupMessage");
+      popup.classList.add("show");
+      setTimeout(() => {
+        popup.classList.remove("show");
+      }, 3000);
+
+      document.getElementById("orderForm").reset();
+    }
+  </script>
 </body>
-</html>
+  </html>
