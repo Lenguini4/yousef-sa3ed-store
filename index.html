@@ -99,7 +99,6 @@
       background: #333;
     }
 
-    /* Popup style (black version) */
     .popup {
       display: none;
       position: fixed;
@@ -142,7 +141,7 @@
   <header>Yousef Timepieces</header>
 
   <div class="product">
-    <img src="https://via.placeholder.com/400x400?text=Black+Watch" alt="Black Watch" />
+    <img src="images/Picsart_25-10-05_21-43-54-349.jpg" alt="Black Watch" />
     <h2>Classic Black Watch</h2>
     <p>
       Elegant matte black watch combining simplicity and luxury.<br>
@@ -188,15 +187,12 @@
       const url = `https://wa.me/201067892584?text=${message}`;
       window.open(url, "_blank");
 
-      // Show popup
       const popup = document.getElementById("popupMessage");
       popup.classList.add("show");
-      setTimeout(() => {
-        popup.classList.remove("show");
-      }, 3000);
+      setTimeout(() => popup.classList.remove("show"), 3000);
 
       document.getElementById("orderForm").reset();
     }
   </script>
 </body>
-  </html>
+</html>
