@@ -1,132 +1,113 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOUSEF SA3Ed - Medical Store</title>
+  <title>𝗬𝗼𝘂𝘀𝗲𝗳 𝗧𝗶𝗺𝗲𝗽𝗶𝗲𝗰𝗲𝘀 | الساعة السوداء</title>
   <style>
-    body { margin: 0; font-family: Tahoma, sans-serif; background-color: #f7fdf9; color: #222; }
-    header { background-color: #0d9488; color: #fff; padding: 20px; text-align: center; font-size: 26px; font-weight: bold; letter-spacing: 1px; }
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 20px; }
-    .product { background-color: #fff; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .product img { width: 100%; border-radius: 8px; }
-    .product h3 { margin: 10px 0 5px; color: #0d9488; }
-    .product p { font-weight: bold; color: #444; }
-    .product button { margin-top: 10px; padding: 10px 15px; border: none; background-color: #0d9488; color: white; font-weight: bold; cursor: pointer; border-radius: 6px; }
-    form { padding: 20px; background-color: #e6fef7; border-top: 3px solid #0d9488; }
-    form h2 { color: #0d9488; }
-    form input, form select, form textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; }
-    form button { padding: 12px; background-color: #0d9488; color: #fff; border: none; width: 100%; font-weight: bold; cursor: pointer; border-radius: 6px; }
+    body {
+      font-family: "Cairo", sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #e0e0e0);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1.7em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .product {
+      max-width: 400px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      margin: 60px auto;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .product h2 {
+      font-size: 1.4em;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #555;
+      background: #f9f9f9;
+    }
   </style>
 </head>
+
 <body>
-  <header>YOUSEF SA3Ed - Medical Store</header>
+  <header>𝗬𝗼𝘂𝘀𝗲𝗳 𝗧𝗶𝗺𝗲𝗽𝗶𝗲𝗰𝗲𝘀</header>
 
-  <div class="products"></div>
+  <div class="product">
+    <img src="https://via.placeholder.com/400x400?text=Black+Watch" alt="الساعة السوداء" />
+    <h2>الساعة السوداء الكلاسيكية</h2>
+    <p>
+      ساعة أنيقة بلون أسود مطفي بالكامل، تجمع بين البساطة والفخامة في تصميم واحد.  
+      تتميز بقرص أسود بأرقام عربية واضحة وسير معدني متين بنفس اللون،  
+      لتناسب الرجال والنساء الذين يفضلون الإطلالة الكلاسيكية الجريئة.
+    </p>
+    <p><em>
+      Elegant matte black watch combining simplicity and luxury.  
+      Features Arabic numerals and a durable black metal strap.  
+      Perfect for both men and women who love a bold, classy look.
+    </em></p>
+    <div class="price">200 EGP</div>
+    <a href="https://wa.me/201000000000?text=أنا%20مهتم%20بالساعة%20السوداء" class="btn">اطلب الآن</a>
+  </div>
 
-  <form id="order-form" onsubmit="sendWhatsApp(); return false;">
-    <h2>نموذج الطلب</h2>
-    <input type="text" id="name" placeholder="الاسم بالكامل" required />
-    <input type="tel" id="phone" placeholder="رقم الهاتف" required />
-    <input type="text" id="address" placeholder="العنوان" required />
-    
-    <select id="product" required>
-      <option value="">اختر المنتج</option>
-    </select>
-    
-    <textarea id="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
-    <button type="submit">إرسال الطلب عبر واتساب</button>
-  </form>
-
-  <script>
-    const products = [
-      {name: "Bur ألماني", price: 102},
-      {name: "Bur صيني", price: 42},
-      {name: "Stone ألماني", price: 102},
-      {name: "Stone صيني", price: 20},
-      {name: "Bana cast (plastic/metal)", price: "229 / 250"},
-      {name: "Dental probe", price: 35},
-      {name: "Wedges", price: 139},
-      {name: "Amalgam capsule", price: 33},
-      {name: "Amalgam carrier", price: 95},
-      {name: "Amalgam condenser", price: 33},
-      {name: "Amalgam carver", price: 33},
-      {name: "Amalgam well", price: 30},
-      {name: "Anatomical burnisher", price: 33},
-      {name: "Egg shaped burnisher", price: 33},
-      {name: "Ball burnisher", price: 33},
-      {name: "Gauze", price: 49},
-      {name: "Acrylic teeth sheet", price: 69},
-      {name: "Toffelmire matrix holder", price: 95},
-      {name: "Matrix band", price: 10},
-      {name: "Dental stone", price: 25},
-      {name: "Acrostone", price: 320},
-      {name: "Separating medium", price: 10},
-      {name: "Bond brush", price: 39},
-      {name: "Glass slab", price: 7},
-      {name: "Wax knife", price: 33},
-      {name: "Wax carver", price: 33},
-      {name: "Basbosa knife", price: 25},
-      {name: "Alginate spatula", price: 15},
-      {name: "Rubber bowl", price: 22},
-      {name: "Pink wax", price: 190},
-      {name: "Torch", price: 155},
-      {name: "Mirror", price: 42},
-      {name: "Napkins", price: 50},
-      {name: "Masks", price: 40},
-      {name: "Mano dental box", price: 435},
-      {name: "Powder free gloves", price: 159},
-      {name: "Netrile gloves", price: 149},
-      {name: "Over gloves medium", price: 10},
-      {name: "Over gloves heavy", price: 15},
-      {name: "Micromotor strong 204 + contra strong low speed", price: "8750 (6 شهور ضمان)"},
-      {name: "Micromotor strong 207 + contra strong low speed", price: "8550 (6 شهور ضمان)"},
-      {name: "Micromotor strong b135 + contra strong low speed", price: "8650 (6 شهور ضمان)"},
-      {name: "Micromotor microNX + contra NSK (ياباني)", price: "7000 (6 شهور ضمان)"},
-      {name: "Micromotor microNX + contra NSK (كوري)", price: "7200 (12 شهر ضمان)"}
-    ];
-
-    const container = document.querySelector('.products');
-    const productSelect = document.getElementById('product');
-
-    products.forEach(p => {
-      // إضافة المنتج للقسم الرئيسي
-      const div = document.createElement('div');
-      div.className = 'product';
-      div.innerHTML = `
-        <img src="https://via.placeholder.com/200x200?text=${encodeURIComponent(p.name)}" alt="${p.name}" />
-        <h3>${p.name}</h3>
-        <p>${p.price} EGP</p>
-        <button onclick="document.getElementById('order-form').scrollIntoView()">اطلب الآن</button>
-      `;
-      container.appendChild(div);
-
-      // إضافة المنتج لقائمة الاختيار في النموذج
-      const option = document.createElement('option');
-      option.value = p.name;
-      option.textContent = p.name;
-      productSelect.appendChild(option);
-    });
-
-    function sendWhatsApp() {
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const address = document.getElementById("address").value;
-      const product = document.getElementById("product").value;
-      const notes = document.getElementById("notes").value;
-
-      const message = `طلب جديد:%0A
-الاسم: ${name}%0A
-رقم الهاتف: ${phone}%0A
-العنوان: ${address}%0A
-المنتج: ${product}%0A
-ملاحظات: ${notes ? notes : "لا يوجد"}`;
-
-      const phoneNumber = "201067892584";
-      const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-
-      window.open(whatsappURL, "_blank");
-    }
-  </script>
+  <footer>© 2025 𝗬𝗼𝘂𝘀𝗲𝗳 𝗧𝗶𝗺𝗲𝗽𝗶𝗲𝗰𝗲𝘀 | Designed by Yousef</footer>
 </body>
-  </html>
+</html>
