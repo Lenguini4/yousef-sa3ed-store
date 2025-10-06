@@ -41,7 +41,7 @@
       <input type="tel" id="phone" placeholder="Phone Number (WhatsApp)" required>
       <textarea id="notes" placeholder="Notes (optional)"></textarea>
 
-      <!-- زر إرسال مباشر على واتساب Messenger -->
+      <!-- زر إرسال مباشر على واتساب بدون أي خيارات -->
       <button type="button" class="btn" onclick="sendToWhatsApp()">Send via WhatsApp</button>
     </form>
   </div>
@@ -71,10 +71,10 @@
                       `📝 Notes: ${notes || "N/A"}%0A%0A` +
                       `Product: Classic Black Watch - 200 EGP`;
 
-      // فتح واتساب Messenger مباشرة بدون تحذير WhatsApp Business
-      const url = `https://api.whatsapp.com/send?phone=${myNumber}&text=${message}`;
-      window.open(url, "_blank");
+      // يرسل مباشرة للواتساب بدون أي اختيارات
+      window.location.href = `https://wa.me/${myNumber}?text=${message}`;
 
+      // رسالة تأكيد popup
       const popup = document.getElementById("popupMessage");
       popup.classList.add("show");
       setTimeout(() => popup.classList.remove("show"), 3000);
