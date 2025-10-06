@@ -59,7 +59,7 @@
   <header>Yousef Timepieces</header>
 
   <div class="product">
-    <!-- الصورة الجديدة عالية الجودة من ImageBB -->
+    <!-- الصورة الجديدة عالية الجودة -->
     <img src="https://i.ibb.co/G49bgStF/Picsart-25-10-05-21-43-54-349.jpg" alt="Black Watch">
     <h2>Classic Black Watch</h2>
     <p>
@@ -74,7 +74,12 @@
       <input type="text" id="address" placeholder="Address" required>
       <input type="tel" id="phone" placeholder="Phone Number" required>
       <textarea id="notes" placeholder="Notes (optional)"></textarea>
+
+      <!-- زر فتح واتساب -->
       <button type="button" class="btn" onclick="sendToWhatsApp()">Send via WhatsApp</button>
+      
+      <!-- زر نسخ الرقم مع كلمة WhatsApp -->
+      <button type="button" class="btn" onclick="copyNumber()">Copy Phone Number (WhatsApp)</button>
     </form>
   </div>
 
@@ -83,20 +88,36 @@
   <footer>© 2025 Yousef Timepieces | Designed by Yousef</footer>
 
   <script>
+    const myNumber = "201067892584"; // رقمك بدون + أو 00
+
     function sendToWhatsApp() {
       const name = document.getElementById("name").value.trim();
       const address = document.getElementById("address").value.trim();
       const phone = document.getElementById("phone").value.trim();
       const notes = document.getElementById("notes").value.trim();
-      if (!name || !address || !phone) { alert("Please fill in all required fields."); return; }
+
+      if (!name || !address || !phone) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
       const message = `New Order from Yousef Timepieces:%0A%0A👤 Name: ${name}%0A🏠 Address: ${address}%0A📞 Phone: ${phone}%0A📝 Notes: ${notes || "N/A"}%0A%0AProduct: Classic Black Watch - 200 EGP`;
-      const url = `https://wa.me/201067892584?text=${message}`;
+      
+      const url = `https://wa.me/${myNumber}?text=${message}`;
       window.open(url, "_blank");
+
       const popup = document.getElementById("popupMessage");
       popup.classList.add("show");
       setTimeout(() => popup.classList.remove("show"), 3000);
+
       document.getElementById("orderForm").reset();
+    }
+
+    function copyNumber() {
+      navigator.clipboard.writeText(myNumber).then(() => {
+        alert("Phone number copied! Open WhatsApp and paste it.");
+      });
     }
   </script>
 </body>
-</html>
+  </html>
