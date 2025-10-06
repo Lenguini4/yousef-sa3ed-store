@@ -59,7 +59,6 @@
   <header>Yousef Timepieces</header>
 
   <div class="product">
-    <!-- الصورة الجديدة عالية الجودة -->
     <img src="https://i.ibb.co/G49bgStF/Picsart-25-10-05-21-43-54-349.jpg" alt="Black Watch">
     <h2>Classic Black Watch</h2>
     <p>
@@ -72,23 +71,22 @@
     <form id="orderForm">
       <input type="text" id="name" placeholder="Your Name" required>
       <input type="text" id="address" placeholder="Address" required>
-      <!-- خانة الرقم مع كلمة WhatsApp داخل الخانة -->
       <input type="tel" id="phone" placeholder="Phone Number (WhatsApp)" required>
       <textarea id="notes" placeholder="Notes (optional)"></textarea>
 
-      <!-- زر فتح واتساب -->
-      <button type="button" class="btn" onclick="sendToWhatsApp()">Send via WhatsApp</button>
+      <!-- زر النسخة الجديدة بدون تحذير واتساب -->
+      <button type="button" class="btn" onclick="copyOrderMessage()">Copy Order & Open WhatsApp</button>
     </form>
   </div>
 
-  <div class="popup" id="popupMessage">✅ Your order has been sent — we’ll contact you soon.</div>
+  <div class="popup" id="popupMessage">✅ Order copied! Open WhatsApp and paste it.</div>
 
   <footer>© 2025 Yousef Timepieces | Designed by Yousef</footer>
 
   <script>
     const myNumber = "201067892584"; // رقمك بدون + أو 00
 
-    function sendToWhatsApp() {
+    function copyOrderMessage() {
       const name = document.getElementById("name").value.trim();
       const address = document.getElementById("address").value.trim();
       const phone = document.getElementById("phone").value.trim();
@@ -99,16 +97,19 @@
         return;
       }
 
-      const message = `New Order from Yousef Timepieces:%0A%0A👤 Name: ${name}%0A🏠 Address: ${address}%0A📞 Phone: ${phone}%0A📝 Notes: ${notes || "N/A"}%0A%0AProduct: Classic Black Watch - 200 EGP`;
-      
-      const url = `https://wa.me/${myNumber}?text=${message}`;
-      window.open(url, "_blank");
+      const message = `New Order from Yousef Timepieces:\n\n` +
+                      `👤 Name: ${name}\n` +
+                      `🏠 Address: ${address}\n` +
+                      `📞 Phone: ${phone}\n` +
+                      `📝 Notes: ${notes || "N/A"}\n\n` +
+                      `Product: Classic Black Watch - 200 EGP\n\n` +
+                      `Send this message to: ${myNumber}`;
 
-      const popup = document.getElementById("popupMessage");
-      popup.classList.add("show");
-      setTimeout(() => popup.classList.remove("show"), 3000);
-
-      document.getElementById("orderForm").reset();
+      navigator.clipboard.writeText(message).then(() => {
+        const popup = document.getElementById("popupMessage");
+        popup.classList.add("show");
+        setTimeout(() => popup.classList.remove("show"), 3000);
+      });
     }
   </script>
 </body>
